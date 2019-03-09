@@ -1,0 +1,12 @@
+﻿  Date.cpp
+  Employee.cpp
+  Source.cpp
+d:\c++\excel_consol\vacation_1\external_functions.h(21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\c++\excel_consol\vacation_1\source.cpp(77): warning C4101: 'pBuffForTocken': unreferenced local variable
+  Generating code
+d:\c++\excel_consol\vacation_1\external_functions.h(57): warning C4172: returning address of local variable or temporary: result
+d:\c++\excel_consol\vacation_1\external_functions.h(51): warning C4172: returning address of local variable or temporary: result
+d:\c++\excel_consol\vacation_1\external_functions.h(62): warning C4172: returning address of local variable or temporary: result
+  All 338 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Vacation_1.vcxproj -> D:\C++\Excel_consol\Vacation_1\Release\Vacation_1.exe

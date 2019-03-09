@@ -1,0 +1,4 @@
+Empl. # -Hiring date -Last working period-Vacational balance-
+126-21.10.2015-21.10.2018-24
+122-1.5.2016-1.5.2018-27
+23153-14.1.2018-14.1.2018-29
