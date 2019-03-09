@@ -1,7 +1,6 @@
 #include "Date.h"
 
-#define DATALENGHT 10 //lenght of string with data without points
-// 8 = 2 for day, 2 for month, 4 for year
+
 
 Data::Data(string str)
 {
@@ -64,6 +63,27 @@ bool Data::operator<=(const Data &d2) const
 {
 	if (d2.year == year && d2.month == month && d2.day == day)
 		return true;
+
+	if (d2.year > year)
+		return true;
+
+	if (d2.year == year)
+		if (d2.month > month)
+			return true;
+		else
+		{
+			if (d2.month == month)
+				if (d2.day > day)
+					return true;
+		}
+
+	return false;
+}
+
+bool Data::operator<(const Data &d2) const
+{
+	if (d2.year == year && d2.month == month && d2.day == day)
+		return false;
 
 	if (d2.year > year)
 		return true;

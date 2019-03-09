@@ -22,8 +22,7 @@ Employee::Employee(Data data, int numb, int vacBalance)
 
 void Employee::SetStartPeriod(const Data& date)
 {
-	mStartLastPeriod.day = mHiringData.day;
-	mStartLastPeriod.month = mHiringData.month;
+	mStartLastPeriod = mHiringData;
 	if (mHiringData.month < date.month)
 	{
 		if (mHiringData.year <= date.year)
@@ -35,13 +34,13 @@ void Employee::SetStartPeriod(const Data& date)
 		if (mHiringData.month == date.month)
 		{
 			if (mHiringData.day <= date.day)
-				mStartLastPeriod.year = date.year;
+				mStartLastPeriod.year = mHiringData.year>=date.year ? date.year : date.year -1;			
 			else
-				mStartLastPeriod.year = date.year - 1;
+				mStartLastPeriod.year = mStartLastPeriod.year = mHiringData.year >= date.year ? date.year : date.year - 1;
 		}
 		else
 		{
-			if (mHiringData.year <= date.year)
+			if (mHiringData.year >= date.year)
 				mStartLastPeriod.year = date.year;
 			else
 				mStartLastPeriod.year = date.year - 1;

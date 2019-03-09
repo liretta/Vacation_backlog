@@ -20,10 +20,20 @@ int main(int argc, char ** argv[])
 
 		if (argc < 2)
 		{
-			cout << "Pls, enter file name in commond line and restart program" << endl;
-			system("pause");
-
+			cout << "Pls, press 'Esc' to leave programm and enter file name in commond line or enter full file-name here: " << endl;
+			int a;
+			a = _getch();
+			if (a == 27) // 27 == ESCEPE
 			return 0;
+			else
+			{
+				cin.clear();
+				string strFilename;
+				cin >> strFilename;
+				fileNameLen = strFilename.size();
+				cFileName = new char[fileNameLen + 1]{};
+				memcpy(cFileName, strFilename.c_str(), fileNameLen);
+			}
 		}
 		else
 		{
@@ -108,10 +118,17 @@ int main(int argc, char ** argv[])
 			fseek(f, totalLen, SEEK_CUR);
 			nReadedBytes = fread(cBuffText, sizeof(char), buffLen, f);
 		}
-		//
-		//cout << "Enter date to re-calculate vacation balance ";
+		
+		cout << "Enter date to re-calculate vacation balance (format DD.MM.YYYY): ";
 		string date;
 		cin >> date;
+		while (checkDateFormat(date) != true)
+		{
+			cout << "Wrong forma! Enter date as DD.MM.YYYY" << endl;
+			cin.clear();
+			cin >> date;
+		}
+
 		Data calculateDate(date);
 
 		int n = vcEmployees.size();
@@ -135,7 +152,7 @@ int main(int argc, char ** argv[])
 				"." << (*it).mHiringData.month << "." << (*it).mHiringData.year << "-" << 
 				(*it).mStartLastPeriod.day<<"."<<(*it).mStartLastPeriod.month<<"."<< (*it).mStartLastPeriod.year<<"-"<< (*it).mVacationBalance << endl;;
 		}
-
+		
 		if (cFileName != 0)
 		{
 			delete[] cFileName;
@@ -146,6 +163,7 @@ int main(int argc, char ** argv[])
 			delete[] cBuffText;
 			cBuffText = nullptr;
 		}
+		cout << "File result.txt created successful" << endl;
 	}
 
 	//Mem(); //chering mem leaks

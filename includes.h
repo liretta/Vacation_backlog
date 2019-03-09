@@ -8,5 +8,6 @@
 #include <locale>
 #include <algorithm>
 #include <math.h>
+#include <conio.h>
 
 using namespace std;
